@@ -60,7 +60,7 @@ function HireVishwajeetModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-2 top-2 rounded-full p-1 text-gray-500 transition hover:bg-gray-100 sm:right-3 sm:top-3"
+          className="absolute right-2 top-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-1 text-gray-500 transition hover:bg-gray-100 sm:right-3 sm:top-3 sm:min-h-0 sm:min-w-0"
           aria-label="Close"
         >
           <X className="h-5 w-5" />
@@ -145,27 +145,27 @@ function Navbar({ onHireClick }: { onHireClick?: () => void }) {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-12"
+      className="fixed top-0 left-0 right-0 z-50 px-3 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6 sm:py-4 md:px-12"
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl bg-white px-6 py-3 shadow-sm border border-black/5">
-        <a href="#" className="flex items-center gap-3 font-serif text-xl font-medium text-black">
-          <img src={`${import.meta.env.BASE_URL}mmc-logo-color.jpg`} alt="MMC" className="h-9 w-auto object-contain" />
-          <span className="border-l border-black/20 pl-3 font-sans text-xs md:text-sm font-medium text-black/80">
-            A Product R&amp;D Pitch by Vishwajeet J K
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-2 rounded-2xl bg-white px-3 py-2.5 sm:px-6 sm:py-3 shadow-sm border border-black/5">
+        <a href="#" className="flex min-w-0 shrink items-center gap-2 sm:gap-3 font-serif text-lg sm:text-xl font-medium text-black">
+          <img src={`${import.meta.env.BASE_URL}mmc-logo-color.jpg`} alt="MMC" className="h-7 w-auto shrink-0 object-contain sm:h-9" />
+          <span className="border-l border-black/20 pl-2 font-sans text-xs font-medium text-black/80 sm:pl-3 sm:text-sm">
+            A Product R&amp;D Pitch from Vishwajeet J K
           </span>
         </a>
-        <ul className="flex items-center gap-6 text-sm font-medium text-black/90">
-          <li>
+        <ul className="flex shrink-0 items-center gap-2 overflow-x-auto py-1 scrollbar-hide sm:gap-4 md:gap-6 md:overflow-visible md:py-0 text-xs font-medium text-black/90 sm:text-sm [-webkit-overflow-scrolling:touch]">
+          <li className="hidden sm:block">
             <a href="#methodology" className="hover:text-black transition-colors">
               Methodology
             </a>
           </li>
-          <li>
+          <li className="hidden sm:block">
             <a href="#simulator" className="hover:text-black transition-colors">
               Simulator
             </a>
           </li>
-          <li>
+          <li className="hidden sm:block">
             <a href="#roadmap" className="hover:text-black transition-colors">
               Roadmap
             </a>
@@ -174,10 +174,11 @@ function Navbar({ onHireClick }: { onHireClick?: () => void }) {
             <button
               type="button"
               onClick={handleHireClick}
-              className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-black/90"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-black px-4 py-2.5 text-xs font-semibold text-white transition active:scale-[0.98] hover:bg-black/90 sm:gap-2 sm:px-5 sm:text-sm [min-height:44px]"
             >
-              Hire Vishwajeet
-              <ArrowRight className="h-4 w-4" />
+              <span className="sm:hidden">Hire</span>
+              <span className="hidden sm:inline">Hire Vishwajeet</span>
+              <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </button>
           </li>
         </ul>
@@ -219,7 +220,7 @@ function Hero() {
 
   return (
     <section
-      className="relative min-h-[90vh] overflow-hidden px-6 pt-28 pb-20 md:px-12"
+      className="relative min-h-[85vh] overflow-hidden px-4 pt-24 pb-16 sm:min-h-[90vh] sm:px-6 sm:pt-28 sm:pb-20 md:px-12"
       style={{
         backgroundColor: "#1A0B2E",
       }}
@@ -233,14 +234,14 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto flex min-h-[calc(90vh-6rem)] max-w-6xl flex-col items-center gap-12 lg:grid lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-12">
+      <div className="relative mx-auto flex min-h-0 max-w-6xl flex-col items-center gap-8 sm:min-h-[calc(90vh-6rem)] sm:gap-12 lg:grid lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-12">
         {/* Left: Typography & CTA (MMC hierarchy) — narrower so hexagon has room */}
-        <div className="flex-1 text-center lg:text-left lg:max-w-md">
+        <div className="flex-1 text-center lg:text-left lg:max-w-md mb-[2cm] lg:mb-0 lg:mr-[2cm]">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="font-serif text-lg md:text-xl tracking-wide text-mmc-gold whitespace-nowrap"
+            className="font-serif text-base tracking-wide text-mmc-gold sm:text-lg sm:whitespace-nowrap md:text-xl"
           >
             Multi‑Agent Media‑for‑Equity Simulation Engine
           </motion.p>
@@ -248,7 +249,7 @@ function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-3 font-serif text-xl font-medium leading-snug text-mmc-white md:text-2xl lg:text-3xl max-w-md"
+            className="mt-2 font-serif text-lg font-medium leading-snug text-mmc-white sm:mt-3 sm:text-xl md:text-2xl lg:text-3xl max-w-md"
           >
             A strategic engine for simulating venture outcomes.
           </motion.h1>
@@ -256,7 +257,7 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-6 max-w-sm font-sans text-sm text-mmc-white/80 md:text-base"
+            className="mt-4 max-w-sm font-sans text-sm text-mmc-white/80 sm:mt-6 md:text-base"
           >
             Transform your diligence process with AI-powered simulation. Predict
             traffic spikes, inventory efficiency, and valuation uplift before
@@ -266,11 +267,11 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-10"
+            className="mt-8 sm:mt-10"
           >
             <motion.a
               href="#simulator"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-semibold text-black"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-sans text-sm font-semibold text-black active:scale-[0.98] sm:px-8 sm:py-4"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -285,7 +286,7 @@ function Hero() {
           initial={{ opacity: 0, x: 32 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative w-full max-w-md flex-shrink-0 lg:max-w-xl h-[420px] md:h-[520px]"
+          className="relative w-full max-w-md flex-shrink-0 lg:max-w-xl h-[300px] min-h-[280px] sm:h-[380px] md:h-[420px] lg:h-[520px]"
         >
           <div className="relative h-full w-full">
             {/* Hexagon: proper regular hexagon (circumradius 38), pulsing gold lines */}
@@ -323,7 +324,7 @@ function Hero() {
 
             {/* Central HUB node — same size as satellites */}
             <motion.div
-              className="hex-node absolute left-1/2 top-1/2 w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl"
+              className="hex-node absolute left-1/2 top-1/2 w-28 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl sm:w-36 sm:rounded-2xl sm:p-3 md:w-40"
               animate={{ y: [-6, 6, -6] }}
               transition={{ duration: 8, repeat: Infinity, repeatType: "loop" }}
             >
@@ -347,7 +348,7 @@ function Hero() {
 
             {/* Agent Node A - Inventory Scout (hex top) — slightly wider */}
             <motion.div
-              className="hex-node absolute left-1/2 top-[12%] w-48 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl"
+              className="hex-node absolute left-1/2 top-[12%] w-36 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl sm:w-44 sm:rounded-2xl sm:p-3 md:w-48"
               animate={{ y: [-8, 2, -8] }}
               transition={{ duration: 7, repeat: Infinity, repeatType: "loop", delay: 0.3 }}
             >
@@ -368,7 +369,7 @@ function Hero() {
 
             {/* Agent Node B - Deal Risk (hex top-right) */}
             <motion.div
-              className="hex-node absolute left-[83%] top-[31%] w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl"
+              className="hex-node absolute left-[83%] top-[31%] w-28 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl sm:w-36 sm:rounded-2xl sm:p-3 md:w-40"
               animate={{ y: [-4, 6, -4] }}
               transition={{ duration: 9, repeat: Infinity, repeatType: "loop", delay: 0.6 }}
             >
@@ -388,7 +389,7 @@ function Hero() {
 
             {/* Agent Node C - Equity Valuation (hex bottom-right) */}
             <motion.div
-              className="hex-node absolute left-[83%] top-[69%] w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl"
+              className="hex-node absolute left-[83%] top-[69%] w-28 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl sm:w-36 sm:rounded-2xl sm:p-3 md:w-40"
               animate={{ y: [4, -6, 4] }}
               transition={{ duration: 10, repeat: Infinity, repeatType: "loop", delay: 0.9 }}
             >
@@ -408,7 +409,7 @@ function Hero() {
 
             {/* Agent Node D - Deal Structurer (hex bottom) */}
             <motion.div
-              className="hex-node absolute left-1/2 top-[88%] w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl"
+              className="hex-node absolute left-1/2 top-[88%] w-28 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl sm:w-36 sm:rounded-2xl sm:p-3 md:w-40"
               animate={{ y: [6, -4, 6] }}
               transition={{ duration: 8, repeat: Infinity, repeatType: "loop", delay: 0.5 }}
             >
@@ -428,7 +429,7 @@ function Hero() {
 
             {/* Agent Node E - GTM Simulations (hex bottom-left) */}
             <motion.div
-              className="hex-node absolute left-[17%] top-[69%] w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl"
+              className="hex-node absolute left-[17%] top-[69%] w-28 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl sm:w-36 sm:rounded-2xl sm:p-3 md:w-40"
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 7.5, repeat: Infinity, repeatType: "loop", delay: 0.4 }}
             >
@@ -448,7 +449,7 @@ function Hero() {
 
             {/* Agent Node F - Red Flags (hex top-left) */}
             <motion.div
-              className="hex-node absolute left-[17%] top-[31%] w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl"
+              className="hex-node absolute left-[17%] top-[31%] w-28 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_0_24px_rgba(200,163,85,0.2)] backdrop-blur-xl sm:w-36 sm:rounded-2xl sm:p-3 md:w-40"
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 8.5, repeat: Infinity, repeatType: "loop", delay: 0.7 }}
             >
@@ -527,7 +528,7 @@ function Simulator() {
   }, [simPhase, activePrompt]);
 
   return (
-    <section id="simulator" className="relative bg-mmc-deep px-6 py-24 md:px-12">
+    <section id="simulator" className="relative bg-mmc-deep px-4 py-16 sm:px-6 sm:py-24 md:px-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -535,15 +536,15 @@ function Simulator() {
         transition={{ duration: 0.5 }}
         className="mx-auto max-w-5xl"
       >
-        <h2 className="font-serif text-3xl font-medium text-mmc-white md:text-4xl text-center">
+        <h2 className="font-serif text-2xl font-medium text-mmc-white text-center sm:text-3xl md:text-4xl">
           Simulate Media-for-Equity <span className="text-mmc-gold">Agents.</span>
         </h2>
-        <p className="mt-2 font-sans text-mmc-white/80 text-center">
+        <p className="mt-2 font-sans text-sm text-mmc-white/80 text-center sm:text-base">
           Run sample prompts per agent and see how the M4E engine generates workflows and outputs.
         </p>
 
-        {/* TuskCPA-style horizontal nav: 7 titles from hero boxes */}
-        <nav className="mt-8 flex flex-nowrap items-center justify-center gap-1 border-b border-white/10 pb-4 whitespace-nowrap md:gap-2">
+        {/* TuskCPA-style horizontal nav: 7 titles from hero boxes — scroll on mobile */}
+        <nav className="mt-6 flex flex-nowrap items-center justify-start gap-1 overflow-x-auto border-b border-white/10 pb-4 scrollbar-hide sm:mt-8 sm:justify-center sm:gap-2 md:justify-center [-webkit-overflow-scrolling:touch]">
           {SIMULATOR_NAV.map((title, i) => (
             <button
               key={title}
@@ -561,8 +562,8 @@ function Simulator() {
         </nav>
 
         {/* Central card: solid header + white body with sample prompts */}
-        <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white shadow-xl">
-          <div className="flex flex-col items-start justify-between gap-4 bg-mmc-deep-alt px-6 py-5 md:flex-row md:items-center md:px-8">
+        <div className="mt-6 overflow-hidden rounded-xl border border-white/10 bg-white shadow-xl sm:mt-8 sm:rounded-2xl">
+          <div className="flex flex-col items-start justify-between gap-3 bg-mmc-deep-alt px-4 py-4 sm:gap-4 sm:px-6 sm:py-5 md:flex-row md:items-center md:px-8">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/20">
                 <Settings className="h-5 w-5 text-white" strokeWidth={1.5} />
@@ -578,18 +579,18 @@ function Simulator() {
             </div>
           </div>
 
-          <div className="border-t border-black/5 bg-white p-6 md:p-8">
-            <div className="mb-6 flex flex-col items-center text-center">
-              <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-mmc-deep/10">
-                <Zap className="h-6 w-6 text-mmc-gold" strokeWidth={1.5} />
+          <div className="border-t border-black/5 bg-white p-4 sm:p-6 md:p-8">
+            <div className="mb-4 flex flex-col items-center text-center sm:mb-6">
+              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-mmc-deep/10 sm:mb-3 sm:h-12 sm:w-12">
+                <Zap className="h-5 w-5 text-mmc-gold sm:h-6 sm:w-6" strokeWidth={1.5} />
               </div>
-              <h3 className="font-serif text-xl font-medium text-black">Choose a Sample Prompt</h3>
-              <p className="mt-1 max-w-lg font-sans text-sm text-black/70">
+              <h3 className="font-serif text-lg font-medium text-black sm:text-xl">Choose a Sample Prompt</h3>
+              <p className="mt-1 max-w-lg font-sans text-xs text-black/70 sm:text-sm">
                 Select one of the prompts below to see how the M4E agent generates workflows and outputs.
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
               {(prompts as readonly PromptEntry[]).map((item: PromptEntry, index: number) => (
                 <button
                   key={item.title}
@@ -597,7 +598,7 @@ function Simulator() {
                   onClick={() =>
                     setActivePrompt({ agent: activeTitle as AgentName, index })
                   }
-                  className={`rounded-xl border p-4 text-left transition ${
+                  className={`min-h-[44px] rounded-xl border p-3 text-left transition active:scale-[0.99] sm:p-4 ${
                     activePrompt?.agent === activeTitle && activePrompt.index === index
                       ? "border-mmc-gold bg-mmc-gold/5"
                       : "border-black/10 bg-black/[0.02] hover:border-mmc-gold/30 hover:bg-mmc-gold/5"
@@ -881,7 +882,7 @@ function StrategicRoadmap() {
     <section
       id="roadmap"
       ref={sectionRef}
-      className="relative bg-[#1A0B2E] px-6 py-24 md:px-12"
+      className="relative bg-[#1A0B2E] px-4 py-16 sm:px-6 sm:py-24 md:px-12"
     >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -889,10 +890,10 @@ function StrategicRoadmap() {
         viewport={{ once: true, margin: "-60px" }}
         className="mx-auto max-w-4xl"
       >
-        <h2 className="font-serif text-3xl font-medium text-mmc-white md:text-4xl text-center">
+        <h2 className="font-serif text-2xl font-medium text-mmc-white text-center sm:text-3xl md:text-4xl">
           Strategic Roadmap <span className="text-mmc-gold">& Cost Forecast</span>
         </h2>
-        <p className="mt-3 font-sans text-mmc-white/80 text-center max-w-2xl mx-auto">
+        <p className="mt-2 font-sans text-sm text-mmc-white/80 text-center max-w-2xl mx-auto sm:mt-3 sm:text-base">
           From Pilot Project to Sovereign AI Ecosystem — the evolution of this IP.
         </p>
 
@@ -991,7 +992,7 @@ function StrategicRoadmap() {
                             type="button"
                             aria-label="Cost breakdown"
                             onClick={() => setCostTooltipIndex((i) => (i === index ? null : index))}
-                            className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mmc-gold/40 bg-mmc-gold/20 text-mmc-gold transition hover:bg-mmc-gold/30 focus:outline-none focus:ring-2 focus:ring-mmc-gold/50"
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-mmc-gold/40 bg-mmc-gold/20 text-mmc-gold transition hover:bg-mmc-gold/30 focus:outline-none focus:ring-2 focus:ring-mmc-gold/50 min-h-[44px] min-w-[44px] sm:h-5 sm:w-5 sm:min-h-0 sm:min-w-0"
                           >
                             <Info className="h-3 w-3" strokeWidth={2} />
         </button>
@@ -1070,22 +1071,22 @@ const bentoCards = [
 
 function BentoGrid() {
   return (
-    <section id="methodology" className="relative px-6 py-24 md:px-12">
+    <section id="methodology" className="relative px-4 py-16 sm:px-6 sm:py-24 md:px-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         className="mx-auto max-w-6xl"
       >
-        <h2 className="font-serif text-3xl font-medium text-mmc-white md:text-4xl">
+        <h2 className="font-serif text-2xl font-medium text-mmc-white sm:text-3xl md:text-4xl">
           Methodology
         </h2>
-        <p className="mt-3 max-w-xl font-sans text-mmc-white/70">
+        <p className="mt-2 max-w-xl font-sans text-sm text-mmc-white/70 sm:mt-3 sm:text-base">
           The Media-Lift Engine in practice: from data to simulation to
           optimization.
         </p>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {bentoCards.map((card) => (
             <motion.article
               key={card.title}
@@ -1093,7 +1094,7 @@ function BentoGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: card.delay }}
-              className="group rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-transparent p-6 transition-all duration-300 hover:border-mmc-gold/40 hover:shadow-[0_0_24px_-4px_rgba(200,163,85,0.15)]"
+              className="group rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-transparent p-4 transition-all duration-300 hover:border-mmc-gold/40 hover:shadow-[0_0_24px_-4px_rgba(200,163,85,0.15)] sm:p-6"
             >
               <div className="mb-4 inline-flex rounded-lg border border-white/10 bg-white/5 p-2.5 text-mmc-gold transition group-hover:border-mmc-gold/30 group-hover:bg-mmc-gold/10">
                 <card.icon className="h-5 w-5" strokeWidth={1.5} />
@@ -1161,7 +1162,7 @@ function PromiseCTA({ onHireClick }: { onHireClick?: () => void }) {
     <section
       id="promise"
       ref={sectionRef}
-      className="relative px-6 py-24 md:px-12"
+      className="relative px-4 py-16 sm:px-6 sm:py-24 md:px-12"
       style={{ backgroundColor: "#1A0B2E" }}
     >
       <motion.div
@@ -1170,21 +1171,21 @@ function PromiseCTA({ onHireClick }: { onHireClick?: () => void }) {
         viewport={{ once: true, margin: "-60px" }}
         className="mx-auto max-w-5xl text-center"
       >
-        <h2 className="font-serif text-3xl font-medium text-white md:text-4xl lg:text-5xl">
+        <h2 className="font-serif text-2xl font-medium text-white sm:text-3xl md:text-4xl lg:text-5xl">
           Maximize Your{" "}
           <span className="text-[#D4AF37]">Media Equity Yield.</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl font-sans text-base text-mmc-white/80 md:text-lg">
+        <p className="mx-auto mt-3 max-w-2xl font-sans text-sm text-mmc-white/80 sm:mt-4 sm:text-base md:text-lg">
           The Media-Lift Engine—the multi-agent system, roadmap, and simulation you’ve seen above—enhances investment precision and operational safety. It’s designed to be built. Vishwajeet knows what to make and how to deliver it.
         </p>
-        <p className="mx-auto mt-3 max-w-2xl font-sans text-sm text-mmc-white/60 md:text-base">
+        <p className="mx-auto mt-2 max-w-2xl font-sans text-xs text-mmc-white/60 sm:mt-3 sm:text-sm md:text-base">
           The numbers below show the impact when this engine is built and owned.
         </p>
         {onHireClick ? (
           <motion.button
             type="button"
             onClick={onHireClick}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-base font-semibold text-black transition hover:bg-white/95"
+            className="mt-6 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-sans text-sm font-semibold text-black transition active:scale-[0.98] hover:bg-white/95 sm:mt-8 sm:px-8 sm:py-4 sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -1193,7 +1194,7 @@ function PromiseCTA({ onHireClick }: { onHireClick?: () => void }) {
         ) : (
           <motion.a
             href="#hire"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-base font-semibold text-black transition hover:bg-white/95"
+            className="mt-6 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-sans text-sm font-semibold text-black transition active:scale-[0.98] hover:bg-white/95 sm:mt-8 sm:px-8 sm:py-4 sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -1201,7 +1202,7 @@ function PromiseCTA({ onHireClick }: { onHireClick?: () => void }) {
           </motion.a>
         )}
 
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 sm:mt-16 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
           {PROMISE_METRICS.map((metric, index) => (
             <motion.div
               key={metric.label}
@@ -1211,14 +1212,14 @@ function PromiseCTA({ onHireClick }: { onHireClick?: () => void }) {
               transition={{ duration: 0.4, delay: index * 0.1 }}
               className="flex flex-col items-center"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#D4AF37] text-white">
-                <metric.icon className="h-8 w-8" strokeWidth={1.5} />
-      </div>
-              <p className="mt-4 font-serif text-4xl font-medium text-white md:text-5xl">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#D4AF37] text-white sm:h-14 sm:w-14 md:h-16 md:w-16">
+                <metric.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" strokeWidth={1.5} />
+              </div>
+              <p className="mt-3 font-serif text-3xl font-medium text-white sm:mt-4 sm:text-4xl md:text-5xl">
                 {displayValues[index]}
                 {metric.suffix}
               </p>
-              <p className="mt-2 font-sans text-sm text-mmc-white/60">
+              <p className="mt-1.5 text-center font-sans text-xs text-mmc-white/60 sm:mt-2 sm:text-sm">
                 {metric.label}
               </p>
             </motion.div>
@@ -1246,9 +1247,9 @@ function App() {
         isOpen={hireModalOpen}
         onClose={() => setHireModalOpen(false)}
       />
-      <footer className="border-t border-white/10 px-6 py-8 md:px-12 bg-[#0b0413]/60 backdrop-blur-sm">
+      <footer className="border-t border-white/10 px-4 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-6 sm:py-8 md:px-12 bg-[#0b0413]/60 backdrop-blur-sm">
         <div className="mx-auto max-w-6xl text-center">
-          <p className="font-sans text-sm text-mmc-white/50">
+          <p className="font-sans text-[0.525rem] text-mmc-white/50 sm:text-sm">
             © Mercurius Media Capital. Internal use. × A Product R&amp;D Pitch from Vishwajeet J K
           </p>
         </div>
