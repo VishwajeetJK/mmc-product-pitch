@@ -29,7 +29,7 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## GitHub Pages
 
-Live site: **https://vishwajeetjk.github.io/MMC-VJK-Product-Pitch/**
+Live site: **https://vishwajeetjk.github.io/mmc-product-pitch/**
 
 Use the URL above **with the trailing slash**. If you get a 404:
 1. In repo **Settings → Pages**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
