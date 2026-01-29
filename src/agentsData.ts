@@ -445,4 +445,5 @@ export const agentsData = {
 } as const;
 
 export type AgentName = keyof typeof agentsData;
+export type PromptEntry = (typeof agentsData)[AgentName][number];
 

@@ -23,7 +23,7 @@ import {
   Linkedin,
   Mail,
 } from "lucide-react";
-import { agentsData, type AgentName } from "./agentsData";
+import { agentsData, type AgentName, type PromptEntry } from "./agentsData";
 import { roadmapData } from "./roadmapData";
 
 function HireVishwajeetModal({
@@ -590,7 +590,7 @@ function Simulator() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {prompts.map((item, index) => (
+              {(prompts as readonly PromptEntry[]).map((item: PromptEntry, index: number) => (
                 <button
                   key={item.title}
                   type="button"
