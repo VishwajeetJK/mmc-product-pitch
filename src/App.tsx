@@ -69,7 +69,7 @@ function HireVishwajeetModal({
         <div className="flex flex-col items-center text-center">
           <div className="mb-4 h-40 w-40 overflow-hidden rounded-xl border-4 border-red-500 sm:mb-5 sm:h-48 sm:w-48">
             <img
-              src="/jeet.webp"
+              src={`${import.meta.env.BASE_URL}jeet.webp`}
               alt="Vishwajeet J K"
               className="h-full w-full object-cover object-[center_28%]"
             />
@@ -149,7 +149,7 @@ function Navbar({ onHireClick }: { onHireClick?: () => void }) {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl bg-white px-6 py-3 shadow-sm border border-black/5">
         <a href="#" className="flex items-center gap-3 font-serif text-xl font-medium text-black">
-          <img src="/mmc-logo-color.jpg" alt="MMC" className="h-9 w-auto object-contain" />
+          <img src={`${import.meta.env.BASE_URL}mmc-logo-color.jpg`} alt="MMC" className="h-9 w-auto object-contain" />
           <span className="border-l border-black/20 pl-3 font-sans text-xs md:text-sm font-medium text-black/80">
             A Product R&amp;D Pitch by Vishwajeet J K
           </span>
