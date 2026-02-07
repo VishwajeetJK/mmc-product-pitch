@@ -475,10 +475,31 @@ function Hero() {
 
 const SIMULATOR_NAV = Object.keys(agentsData) as AgentName[];
 
+const PRE_DEAL_AGENTS: AgentName[] = [
+  "Media Asset Scout",
+  "Asset Valuator",
+  "Partner Integration",
+  "Venture Hunter",
+  "Automated Outreach",
+  "The Convincer",
+  "Asset Deployment",
+];
+
+const POST_DEAL_AGENTS: AgentName[] = [
+  "Media-for-Equity Core",
+  "Inventory Scout",
+  "Deal Risk",
+  "Equity Valuation",
+  "Deal Structurer",
+  "GTM Simulations",
+  "Red Flags",
+];
+
 function Simulator() {
   const [activeTab, setActiveTab] = useState(0);
   const activeTitle = SIMULATOR_NAV[activeTab];
   const prompts = agentsData[activeTitle];
+  const setActiveByAgent = (name: AgentName) => setActiveTab(SIMULATOR_NAV.indexOf(name));
   const [activePrompt, setActivePrompt] = useState<{
     agent: AgentName;
     index: number;
@@ -543,22 +564,40 @@ function Simulator() {
           Run sample prompts per agent and see how the M4E engine generates workflows and outputs.
         </p>
 
-        {/* TuskCPA-style horizontal nav: 7 titles from hero boxes — scroll on mobile */}
-        <nav className="mt-6 flex flex-nowrap items-center justify-start gap-1 overflow-x-auto border-b border-white/10 pb-4 scrollbar-hide sm:mt-8 sm:justify-center sm:gap-2 md:justify-center [-webkit-overflow-scrolling:touch]">
-          {SIMULATOR_NAV.map((title, i) => (
-            <button
-              key={title}
-              type="button"
-              onClick={() => setActiveTab(i)}
-              className={`shrink-0 rounded-full px-3 py-1.5 font-sans text-xs font-medium transition md:px-3.5 md:py-2 md:text-sm ${
-                activeTab === i
-                  ? "bg-mmc-gold text-black"
-                  : "text-mmc-white/80 hover:bg-white/10 hover:text-mmc-white"
-              }`}
-            >
-              {title}
-            </button>
-          ))}
+        {/* Two rows: pre-deal line, post-deal line — no labels, no scroll */}
+        <nav className="mt-6 flex flex-col items-center gap-2 border-b border-white/10 pb-4 sm:mt-8 sm:gap-3" aria-label="Agent tabs">
+          <div className="flex flex-nowrap items-center justify-center gap-1 sm:gap-1.5">
+            {PRE_DEAL_AGENTS.map((title) => (
+              <button
+                key={title}
+                type="button"
+                onClick={() => setActiveByAgent(title)}
+                className={`shrink-0 rounded-full px-1.5 py-1 font-sans text-[9px] font-medium leading-tight transition sm:px-2 sm:py-1.5 sm:text-[10px] md:px-2.5 md:text-xs ${
+                  activeTitle === title
+                    ? "bg-mmc-gold text-black"
+                    : "text-mmc-white/80 hover:bg-white/10 hover:text-mmc-white"
+                }`}
+              >
+                {title}
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-nowrap items-center justify-center gap-1 sm:gap-1.5">
+            {POST_DEAL_AGENTS.map((title) => (
+              <button
+                key={title}
+                type="button"
+                onClick={() => setActiveByAgent(title)}
+                className={`shrink-0 rounded-full px-1.5 py-1 font-sans text-[9px] font-medium leading-tight transition sm:px-2 sm:py-1.5 sm:text-[10px] md:px-2.5 md:text-xs ${
+                  activeTitle === title
+                    ? "bg-mmc-gold text-black"
+                    : "text-mmc-white/80 hover:bg-white/10 hover:text-mmc-white"
+                }`}
+              >
+                {title}
+              </button>
+            ))}
+          </div>
         </nav>
 
         {/* Central card: solid header + white body with sample prompts */}
